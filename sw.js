@@ -1,22 +1,22 @@
-// sw.js - Service Worker para H&H STUDIO NAILS
+// sw.js - Service Worker para D' Cora Nails Studio
 
-const CACHE_NAME = 'hhnails-v1';
+const CACHE_NAME = 'dcora-nails-studio-v1';
 const urlsToCache = [
-  '/hhnails/',
-  '/hhnails/index.html',
-  '/hhnails/admin.html',
-  '/hhnails/admin-login.html',
-  '/hhnails/setup-wizard.html',
-  '/hhnails/editar-negocio.html',
-  '/hhnails/manifest.json',
-  '/hhnails/icons/icon-72x72.png',
-  '/hhnails/icons/icon-96x96.png',
-  '/hhnails/icons/icon-128x128.png',
-  '/hhnails/icons/icon-144x144.png',
-  '/hhnails/icons/icon-152x152.png',
-  '/hhnails/icons/icon-192x192.png',
-  '/hhnails/icons/icon-384x384.png',
-  '/hhnails/icons/icon-512x512.png'
+  '/dcora-nails-studio/',
+  '/dcora-nails-studio/index.html',
+  '/dcora-nails-studio/admin.html',
+  '/dcora-nails-studio/admin-login.html',
+  '/dcora-nails-studio/setup-wizard.html',
+  '/dcora-nails-studio/editar-negocio.html',
+  '/dcora-nails-studio/manifest.json',
+  '/dcora-nails-studio/icons/icon-72x72.png',
+  '/dcora-nails-studio/icons/icon-96x96.png',
+  '/dcora-nails-studio/icons/icon-128x128.png',
+  '/dcora-nails-studio/icons/icon-144x144.png',
+  '/dcora-nails-studio/icons/icon-152x152.png',
+  '/dcora-nails-studio/icons/icon-192x192.png',
+  '/dcora-nails-studio/icons/icon-384x384.png',
+  '/dcora-nails-studio/icons/icon-512x512.png'
 ];
 
 // ============================================
@@ -108,7 +108,7 @@ self.addEventListener('fetch', event => {
           }
           // Si no hay cache y es imagen, devolver icon por defecto
           if (event.request.url.match(/\.(jpg|jpeg|png|gif|svg|webp)$/)) {
-            return caches.match('/hhnails/icons/icon-192x192.png');
+            return caches.match('/dcora-nails-studio/icons/icon-192x192.png');
           }
           return new Response('Error de red', { status: 408 });
         });
@@ -138,6 +138,6 @@ self.addEventListener('message', event => {
   }
 });
 
-console.log('✅ Service Worker configurado para H&H STUDIO NAILS');
+console.log('✅ Service Worker configurado para D\' Cora Nails Studio');
 console.log('📦 Cache:', CACHE_NAME);
 console.log('📄 Archivos a cachear:', urlsToCache.length);
